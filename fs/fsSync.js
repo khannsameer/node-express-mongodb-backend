@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 //writeFile
-// const fileName = "test.txt";
+// const fileName = "Sync.txt";
 // const fileWrite = fs.writeFileSync(fileName, "This is a text file", "utf-8");
 // console.log(fileWrite);
 
