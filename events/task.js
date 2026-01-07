@@ -44,8 +44,8 @@ emitter.on("Summary", () => {
 // Emit events
 emitter.emit("user-login", "Sameer");
 emitter.emit("user-purchase", "Sameer", "Phone");
-// emitter.emit("profile-update", "Sameer", "email");
-// emitter.emit("user-logout", "Sameer");
+emitter.emit("profile-update", "Sameer", "email");
+emitter.emit("user-logout", "Sameer");
 
 // SHow the Summary
 emitter.emit("Summary");
