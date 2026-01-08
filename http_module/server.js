@@ -3,7 +3,7 @@ const http = require("http");
 //web server
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    res.write("Welcome to home page");
+    res.write("Welcome to dynamic home page");
     res.end(); //send the data
   }
 
