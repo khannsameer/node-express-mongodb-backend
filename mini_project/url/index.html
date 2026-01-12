@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>URL Shortener</h1>
+        <p class="subtitle">Convert long links into short & shareable URLs</p>
+
+        <form id="shorten-form">
+          <div class="input-group">
+            <label for="url">Original URL</label>
+            <input
+              type="url"
+              name="url"
+              id="url"
+              placeholder="https://example.com"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="shortCode">Custom Short Code (Optional)</label>
+            <input
+              type="text"
+              name="shortCode"
+              id="shortCode"
+              placeholder="my-link"
+            />
+          </div>
+
+          <button type="submit">Shorten URL</button>
+        </form>
+
+        <h2>Shortened URLs</h2>
+        <ul id="shortened-urls">
+          <!-- Dynamic list -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("shorten-form")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          const url = formData.get("url");
+          const shortCode = formData.get("shortCode");
+
+          console.log(url, shortCode);
+        });
+    </script>
+  </body>
+</html>
