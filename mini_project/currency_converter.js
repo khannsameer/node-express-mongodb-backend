@@ -30,7 +30,7 @@ https.get(url, (response) => {
           if (rate) {
             console.log(
               chalk.blue.bgGray.bold(
-                `${amount} USD is approximately ${currencyConverter(
+                `${amount} AED is approximately ${currencyConverter(
                   amount,
                   rate
                 )} ${curreny}`
