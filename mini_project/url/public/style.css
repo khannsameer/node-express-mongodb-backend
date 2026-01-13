@@ -138,3 +138,9 @@ button:hover {
   max-width: 100%;
   overflow-wrap: break-word;
 }
+
+.original-link {
+  font-size: 12px;
+  color: #666;
+  word-break: break-all;
+}
