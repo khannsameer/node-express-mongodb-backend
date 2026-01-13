@@ -128,3 +128,13 @@ button:hover {
 #shortened-urls a:hover {
   text-decoration: underline;
 }
+
+#shortened-urls li {
+  word-break: break-all; /* forces long URLs to wrap */
+}
+
+#shortened-urls a {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
