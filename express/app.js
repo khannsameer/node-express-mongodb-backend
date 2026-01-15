@@ -1,14 +1,23 @@
 import express from "express";
+import { PORT } from "./env.js";
 
 const app = express();
 
 // const PORT = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("<h1>Hello World</h1>");
 });
 
-const PORT = process.env.PORT || 3000;
+app.get("/about", (req, res) => {
+  res.send("<h1>Hello About Page!</h1>");
+});
+
+app.get("/contact", (req, res) => {
+  res.send("<h1>Hello Contact Page!</h1>");
+});
+
+// const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
