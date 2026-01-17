@@ -4,6 +4,13 @@ import path from "path";
 
 const app = express();
 
+//absolute path
+const staticPath = path.join(import.meta.dirname, "public");
+
+app.use("/public", express.static(staticPath));
+
+//./public --> relative path
+
 // const PORT = 3000;
 
 // app.get("/", (req, res) => {
@@ -25,7 +32,6 @@ const app = express();
 //   console.log(import.meta.dirname);
 //   console.log(import.meta.url); //for filename
 
-app.use(express.static(path.join(import.meta.dirname, "public")));
 app.get("/", (req, res) => {
   const homePagePath = path.join(import.meta.dirname, "public", "index.html");
 
