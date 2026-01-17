@@ -34,11 +34,22 @@ console.log(json);
 
 //absolute path
 const staticPath = path.join(import.meta.dirname, "public");
-app.use("/public", express.static(staticPath));
+app.use(express.static(staticPath));
 
 app.get("/", (req, res) => {
   const homePagePath = path.join(import.meta.dirname, "public", "index.html");
   res.sendFile(homePagePath);
+});
+
+app.get("/profile/:username", (req, res) => {
+  console.log(req.params);
+  res.send(`<h1>Hie, My name is ${req.params.username}</h1>`);
+});
+
+app.get("/profile/:username/article/:slug", (req, res) => {
+  console.log(req.params);
+  const formatedSlug = req.params.slug.replace(/-/g, " ");
+  res.send(`<h1>Article ${req.params.username} by ${formatedSlug}</h1>`);
 });
 
 app.listen(PORT, () => {
