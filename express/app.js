@@ -50,6 +50,14 @@ app.post("/contact", (req, res) => {
   res.redirect("/");
 });
 
+//use this middleware at the end
+app.use((req, res) => {
+  // return res.status(404).send("Page Not Found");
+  return res
+    .status(404)
+    .sendFile(path.join(import.meta.dirname, "views", "404.html"));
+});
+
 /* app.get("/product", (req, res) => {
   console.log(req.query);
   // res.send(`<h1>user search for product ${req.query.search} mobile</h1>`);
