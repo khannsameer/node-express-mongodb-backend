@@ -36,6 +36,14 @@ console.log(json);
 const staticPath = path.join(import.meta.dirname, "public");
 app.use(express.static(staticPath));
 
+app.get("/product", (req, res) => {
+  console.log(req.query);
+  // res.send(`<h1>user search for product ${req.query.search} mobile</h1>`);
+  res.send(
+    `<h1>user search for product page ${req.query.page} ${req.query.limit} mobile</h1>`,
+  );
+});
+
 app.get("/", (req, res) => {
   const homePagePath = path.join(import.meta.dirname, "public", "index.html");
   res.sendFile(homePagePath);
