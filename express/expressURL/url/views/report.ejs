@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Student Report Card</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Report Card</title>
+  
+</head>
+<body>
+<%- include('header') %>
+ 
+<!-- Search Box -->
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search by name or subject..."
+  class="search-box"
+/>
 
-<% students.forEach(student => { %>
-  <p>Name: <%= student.name %></p>
-  <p>Grade: <%= student.Grade %></p>
-  <p>Subject: <%= student.Subject %></p>
-  <hr />
-<% }) %>
+<div class="cards-container">
+  <% students.forEach(student => { %>
+    <div class="student-card grade-<%= student.Grade.replace('+','plus') %>">
+      
+      <!-- Avatar -->
+      <div class="avatar">
+        <%= student.name.charAt(0).toUpperCase() %>
+      </div>
 
-  </body>
+      <div class="card-content">
+        <p><span>Name:</span> <%= student.name %></p>
+        <p><span>Subject:</span> <%= student.Subject %></p>
+        <p>
+          <span>Grade:</span>
+          <strong class="grade-text"><%= student.Grade %></strong>
+        </p>
+      </div>
+
+    </div>
+  <% }) %>
+</div>
+
+<!-- Print Button -->
+<button onclick="window.print()" class="print-btn">Print Report</button>
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".student-card");
+
+  searchInput.addEventListener("keyup", () => {
+    const value = searchInput.value.toLowerCase();
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? "flex" : "none";
+    });
+  });
+</script>
+
+
+<%- include('footer') %>
+</body>
 </html>
