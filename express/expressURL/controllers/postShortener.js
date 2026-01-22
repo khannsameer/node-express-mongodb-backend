@@ -1,4 +1,3 @@
-import { readFile } from "fs/promises";
 import crypto from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -9,27 +8,13 @@ const __dirname = path.dirname(__filename);
 
 export const getShortenerPage = async (req, res) => {
   try {
-    const file = await readFile(
-      path.join(__dirname, "..", "url", "views", "index.html"),
-    );
+    // const file = await readFile(
+    //   path.join(__dirname, "..", "url", "views", "index.html"),
+    // );
 
     const links = await loadLinks();
 
-    const content = file.toString().replace(
-      "{{shortened-url}}",
-      Object.entries(links)
-        .map(
-          ([shortCode, url]) =>
-            `<li>
-              <a href="/${shortCode}" target="_blank">
-                ${req.protocol}://${req.get("host")}/${shortCode}
-              </a> → ${url}
-            </li>`,
-        )
-        .join(""),
-    );
-
-    res.send(content);
+    return res.render("index", { links, host: req.host });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");

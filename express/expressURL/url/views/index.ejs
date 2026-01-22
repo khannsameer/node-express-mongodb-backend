@@ -40,7 +40,25 @@
         <h2>Shortened URLs</h2>
         <ul>
           <!-- Dynamic list -->
-          {{shortened-url}}
+          <!-- {{shortened-url}} -->
+       
+      <!-- Object.entries(links)
+        .map(
+          ([shortCode, url]) =>
+            `<li>
+              <a href="/${shortCode}" target="_blank">${host}/${shortCode}
+              </a> → ${url}
+            </li>`,
+        )
+        .join(""), -->
+
+       <% Object.entries(links).map(([shortCode, url]) => {%>
+        <li>
+          <a href="/<%= shortCode%>" target="_blank">
+            <%= host%>/<%= shortCode%>
+          </a> - <%= url%>
+        </li>
+      <% }) %>
         </ul>
       </div>
     </div>
