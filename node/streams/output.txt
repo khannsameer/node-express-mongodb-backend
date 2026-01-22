@@ -1,0 +1,5 @@
+1st File -> 2nd File.
+This is an example file.
+We are learning about stream in Node.js.
+Stream allow us to read and write data efficidenly.
+Let's process the file in chunks of 16 bytes.!
