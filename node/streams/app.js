@@ -28,5 +28,4 @@ readableStream.on("end", () => {
 
 //Handle error
 readableStream.on("error", (err) => console.error("Error", err));
-
 writeableStram.on("error", (err) => console.error("Error", err));
