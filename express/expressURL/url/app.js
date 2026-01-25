@@ -1,6 +1,6 @@
-import { env } from "../config/env.js";
 import express from "express";
-import { shortenerRoutes } from "../routers/shortener.routes.js";
+// import { shortenerRoutes } from "../routers/shortener.routes.js";
+import { authRoutes } from "../routers/auth.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -15,7 +15,8 @@ app.set("view engine", "ejs"); //template engine
 // app.use(router);
 
 //named export
-app.use(shortenerRoutes);
+app.use(authRoutes);
+// app.use(shortenerRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
