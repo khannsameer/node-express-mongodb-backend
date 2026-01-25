@@ -1,3 +1,4 @@
+import { env } from "../config/env.js";
 import express from "express";
 import { shortenerRoutes } from "../routers/shortener.routes.js";
 
