@@ -30,11 +30,11 @@
 .footer-section strong {
   color: #f8fafc; /* slightly brighter */
 }
-
+/* 
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
-}
+} */
