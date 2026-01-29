@@ -21,11 +21,11 @@
   letter-spacing: 1px;
 }
 
-.footer-section p {
+/* .footer-section p {
   margin: 5px 0;
   line-height: 1.6;
   font-size: 14px;
-}
+} */
 
 .footer-section strong {
   color: #f8fafc; /* slightly brighter */
