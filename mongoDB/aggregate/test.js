@@ -25,3 +25,41 @@ db.products.aggregate([
     },
   },
 ]);
+
+db.products.aggregate([
+  { $match: { price: { $gt: 1200 } } },
+
+  {
+    $group: {
+      _id: "$price",
+      allColors: { $push: "$colors" },
+    },
+  },
+]);
+
+db.products.aggregate([
+  { $unwind: "$colors" },
+  { $match: { price: { $gt: 1200 } } },
+
+  {
+    $group: {
+      _id: "$price",
+      allColors: { $push: "$colors" },
+    },
+  },
+]);
+
+db.col.aggregate([
+  {
+    $project: {
+      name: 1,
+      Values: {
+        $filter: {
+          input: "$values",
+          as: "val",
+          cond: { $gt: ["$$val", 30] },
+        },
+      },
+    },
+  },
+]);
