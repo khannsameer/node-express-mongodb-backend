@@ -49,17 +49,17 @@ db.products.aggregate([
   },
 ]);
 
-db.col.aggregate([
-  {
-    $project: {
-      name: 1,
-      Values: {
-        $filter: {
-          input: "$values",
-          as: "val",
-          cond: { $gt: ["$$val", 30] },
-        },
-      },
-    },
-  },
-]);
+// db.col.aggregate([
+//   {
+//     $project: {
+//       name: 1,
+//       Values: {
+//         $filter: {
+//           input: "$values",
+//           as: "val",
+//           cond: { $gt: ["$$val", 30] },
+//         },
+//       },
+//     },
+//   },
+// ]);
