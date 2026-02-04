@@ -28,8 +28,8 @@ const data1 = {
   category: "Mobile",
   brand: "Samsung",
   price: 89999,
-  stock: 25,
-  rating: 4.5,
+  stock: 22,
+  rating: 4.6,
   createdAt: "2025-01-20T10:30:00Z",
 };
 
